@@ -26,14 +26,3 @@ a2enmod vhost_alias
 a2enmod vhost_hash_alias
 service apache2 restart
 service nginx restart
-
-if [ -f /usr/local/bin/weechat-curses ]; then
-	echo -n "WeeChat already installed.\n"
-else
-        read -p "Do you wish to install weechat-curses? " yn
-        case $yn in
-                [Yy]* ) wget -O ~/weechat.tar http://www.weechat.org/files/src/weechat-0.4.1.tar.gz && cd && tar xvf weechat.tar && cd ~/weechat* && ./autogen.sh && ./configure && make && make install && rm -rf ~/weechat* && echo -n "WeeChat has been installed.\n"; break;;
-                [Nn]* ) break;;
-		* ) break;;
-        esac
-fi
